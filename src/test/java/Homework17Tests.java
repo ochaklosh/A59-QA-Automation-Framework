@@ -17,7 +17,7 @@ public class Homework17Tests extends BaseTest{
         enterEmail(email);
         enterPassword(password);
         submit();
-        Thread.sleep(10000);
+        Thread.sleep(5000);
     //I am creating new Playlist to be used later in the testB
         createNewPlaylist(newPlaylistName);
         Thread.sleep(1000);
