@@ -1,5 +1,6 @@
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -57,6 +58,13 @@ public class ProfileTests extends BaseTest{
     }
 
     private void navigateToProfilePage(){
+        //WAITS DID NOT WORK ONLY Thread.sleep before this method makes it work currently
+        //using Fluent waits
+        //WebElement profileName = (WebElement) fluentWait.until
+                //(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("span.name")));
+        //using explicit waits
+        //WebElement profileName = wait.until
+               //(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("span.name")));
         WebElement profileName = driver.findElement(By.cssSelector("span.name"));
         profileName.click();
     }
