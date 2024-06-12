@@ -4,12 +4,14 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.*;
 
+import javax.swing.*;
 import java.time.Duration;
 
 public class BaseTest {
@@ -21,6 +23,9 @@ public class BaseTest {
 
     //initialization of the Fluent wait object / Rarely Used
     Wait<WebDriver> fluentWait;
+
+    //Actions
+    Actions actions;
 
     String url = "https://qa.koel.app/";
     String email = "demo@testpro.io";
@@ -65,8 +70,9 @@ public class BaseTest {
         //Example of implicit wait condition with timeout of 10 sec before throwing an exception
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         driver.manage().window().maximize();
+        actions = new Actions(driver);
         //Example of using waits explicitly maximum time 10 sec, we initialized before line 16
-        wait =new WebDriverWait(driver, Duration.ofSeconds(10));
+        wait =new WebDriverWait(driver, Duration.ofSeconds(20));
         //Example of using a Fluent waits which is more flexible, But Rarely used
         fluentWait = new FluentWait<WebDriver>(driver)
                 .withTimeout(Duration.ofSeconds(5)).pollingEvery(Duration.ofMillis(200));
