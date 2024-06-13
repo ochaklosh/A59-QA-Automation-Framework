@@ -1,14 +1,20 @@
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import pages.HomePage;
+import pages.LoginPage;
 
 public class LoginTests extends BaseTest {
 
 
-    @Test
+    private static final Log log = LogFactory.getLog(LoginTests.class);
+
+    //@Test
     public void loginEmptyEmailPassword() {
 
         //navigateToPage();
@@ -18,7 +24,15 @@ public class LoginTests extends BaseTest {
     //Happy Path - Login Test
     @Test
     public void loginValidEmailValidPassword() throws InterruptedException {
+        //Using Page Object Model  THE NEW WAY
+        LoginPage loginPage = new LoginPage(driver);
+        HomePage homePage = new HomePage(driver);
 
+        loginPage.login();
+
+        Assert.assertTrue(homePage.getUserAvatar().isDisplayed());
+
+/*     THE OLD WAY
     //Step1
         //navigateToPage();
     //Step2
@@ -41,6 +55,7 @@ public class LoginTests extends BaseTest {
         //WebElement avatarIcon = driver.findElement(By.cssSelector("img[class='avatar']"));
         //Assertions - Expected vs Actual
         Assert.assertTrue(avatarIcon.isDisplayed());
+        */
     }
 
     // Not a Happy Path - Negative Path

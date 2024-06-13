@@ -15,17 +15,14 @@ import javax.swing.*;
 import java.time.Duration;
 
 public class BaseTest {
-    WebDriver driver = null;
+    public WebDriver driver = null;
     ChromeOptions options = new ChromeOptions();
-
     //initialization of driver wait
-    WebDriverWait wait;
-
+    public WebDriverWait wait;
     //initialization of the Fluent wait object / Rarely Used
-    Wait<WebDriver> fluentWait;
-
+    public Wait<WebDriver> fluentWait;
     //Actions
-    Actions actions;
+    public Actions actions;
 
     String url = "https://qa.koel.app/";
     String email = "demo@testpro.io";
