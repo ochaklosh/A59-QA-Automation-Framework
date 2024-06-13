@@ -13,8 +13,9 @@
             <!--<class name="Homework18Tests"/>-->
             <!--<class name="Homework19Tests"/>-->
            <!-- <class name="Homework20Tests"/>-->
-            <class name="AllSongsTests"/>
-            <class name="HomeTest"/>
+            <!--<class name="AllSongsTests"/>
+            <class name="HomeTest"/>-->
+            <class name="Homework21Tests"/>
         </classes>
     </test>
 </suite>
