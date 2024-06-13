@@ -68,7 +68,7 @@ public class BaseTest {
 
         driver = new ChromeDriver(options);
         //Example of implicit wait condition with timeout of 10 sec before throwing an exception
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
         driver.manage().window().maximize();
         actions = new Actions(driver);
         //Example of using waits explicitly maximum time 10 sec, we initialized before line 16
