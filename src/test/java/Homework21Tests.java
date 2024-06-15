@@ -78,8 +78,8 @@ public class Homework21Tests extends BaseTest {
     }
 
     private void choosePlaylistToAddTo() {
-        wait.until(ExpectedConditions.elementToBeClickable
-           (By.xpath("//section[@id='songResultsWrapper']//li[contains(text(),'Playlist21')]"))).click();
+      wait.until(ExpectedConditions.elementToBeClickable
+       (By.xpath("//section[@id='songResultsWrapper']//li[contains(text(),'"+newPlaylistName+"')]"))).click();
     }
 
 /////////  Change the Name of the Play List
