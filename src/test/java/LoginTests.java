@@ -86,7 +86,7 @@ public class LoginTests extends BaseTest {
     }
 
     @Test
-    public void loginWithValidEmailEmptyPassword() throws InterruptedException {
+    public void loginWithValidEmailEmptyPassword(){
         //NEW WAY
         LoginPage loginPage = new LoginPage(driver);
         loginPage.provideEmail(email);
