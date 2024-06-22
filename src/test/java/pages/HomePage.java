@@ -26,7 +26,8 @@ public class HomePage extends BasePage{
     }
 
     public WebElement hoverPlay(){
-        actions.moveToElement(findElementVisibility(playBtn)).perform();
-        return findElementAndClickability(playBtn);
+        WebElement playButton = findElementVisibility(playBtn);
+        actions.moveToElement(playButton).perform();
+        return playButton;
     }
 }
