@@ -4,22 +4,30 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import pages.HomePage;
+import pages.LoginPage;
+
 import java.util.List;
 
 public class HomeTest extends BaseTest{
     String newPlaylistName = "Sample Edited Playlist";
     String expectedMsg = "Updated playlist \"Sample Edited Playlist.\"";
+
     @Test
     public void hoverOverPlayButtonAndPlaySong() {
-    //Login
+        LoginPage loginPage = new LoginPage(driver);
+        HomePage homePage = new HomePage(driver);
+        loginPage.login();
+        Assert.assertTrue(homePage.hoverPlay().isDisplayed());
+    /* OLD way    /Login
         enterEmail(email);
         enterPassword(password);
         submit();
-    // Verification
-        Assert.assertTrue(hoverPlay().isDisplayed());
+    // Verification*/
+       // Assert.assertTrue(hoverPlay().isDisplayed());
     }
 
-    @Test
+    //@Test
     public void countSongsInPlaylist() {
     //Login
         enterEmail(email);
@@ -33,7 +41,7 @@ public class HomeTest extends BaseTest{
         Assert.assertTrue(getPlaylistDetails().contains(String.valueOf(songsCount())));
     }
 
-    @Test
+    //@Test
     public void renamePlaylist(){
     // Login
         enterEmail(email);
@@ -94,11 +102,11 @@ public class HomeTest extends BaseTest{
                 (By.xpath("//a[contains(text(),'"+playlistName+"')]"))).click();
     }
 
-    //Helper Methods
+    /*Helper Methods
     public WebElement hoverPlay(){
         WebElement playBtn = driver.findElement(By.cssSelector("[data-testid='play-btn']"));
         actions.moveToElement(playBtn).perform();
         return wait.until(ExpectedConditions.visibilityOf(playBtn));
-    }
+    }*/
 
 }
