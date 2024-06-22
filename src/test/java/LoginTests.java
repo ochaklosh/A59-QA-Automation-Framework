@@ -61,9 +61,18 @@ public class LoginTests extends BaseTest {
     // Not a Happy Path - Negative Path
     @Test
 
-    public void loginWithInvalidEmailValidPassword() throws InterruptedException {
+    public void loginWithInvalidEmailValidPassword(){
+    //New Way with POM
+        LoginPage loginPage = new LoginPage(driver);
 
-        //Step1
+        loginPage.provideEmail("invalid@koel.io");
+        loginPage.providePassword(password);
+        loginPage.clickSubmit();
+
+        Assert.assertEquals(driver.getCurrentUrl(), url);
+
+    ////  OLD WAY
+       /* //Step1
         //navigateToPage();
         //Step2
         enterEmail("invalid@koel.io");
@@ -73,26 +82,38 @@ public class LoginTests extends BaseTest {
         submit();
         Thread.sleep(2000);
         //Expected Results - Assertions (URL should stay the same)
-        Assert.assertEquals(driver.getCurrentUrl(), url);
+        Assert.assertEquals(driver.getCurrentUrl(), url);*/
     }
 
     @Test
     public void loginWithValidEmailEmptyPassword() throws InterruptedException {
+        //NEW WAY
+        LoginPage loginPage = new LoginPage(driver);
+        loginPage.provideEmail(email);
+        loginPage.clickSubmit();
+        Assert.assertEquals(driver.getCurrentUrl(),url);
+        /* OLD WAY
         //navigateToPage();
+
         enterEmail(email);
         submit();
 
         Thread.sleep(2000); //sleep or pause for 2 seconds (adjust as needed)
         //Expected Result
-        Assert.assertEquals(driver.getCurrentUrl(),url);
+        Assert.assertEquals(driver.getCurrentUrl(),url); */
     }
 
     //dataProvider allows to run 5 negative tests with data sets specified in BaseTest
     @Test(dataProvider = "NegativeLoginTestData", dataProviderClass = TestDataProvider.class)
     public void negativeLoginTests(String email, String password){
+        LoginPage loginPage = new LoginPage(driver);
+        loginPage.login();
+        Assert.assertEquals(driver.getCurrentUrl(), url);
+
+        /* OLD WAY
         enterEmail(email);
         enterPassword(password);
         submit();
-        Assert.assertEquals(driver.getCurrentUrl(), url);
+        Assert.assertEquals(driver.getCurrentUrl(), url);*/
     }
 }
