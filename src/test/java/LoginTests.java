@@ -14,7 +14,7 @@ public class LoginTests extends BaseTest {
 
     private static final Log log = LogFactory.getLog(LoginTests.class);
 
-    //@Test
+    @Test
     public void loginEmptyEmailPassword() {
 
         //navigateToPage();
