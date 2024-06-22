@@ -12,12 +12,12 @@ import java.time.Duration;
 
 public class BasePage {
 
-    WebDriver driver;
-    WebDriverWait wait;
-    Actions actions;
+    protected WebDriver driver;
+    protected WebDriverWait wait;
+    protected Actions actions;
 
     //Locators
-    By soundBarVisualizer = By.cssSelector("[data-testid = 'sound-bar-play']");
+    private By soundBarVisualizer = By.cssSelector("[data-testid = 'sound-bar-play']");
 
     public BasePage(WebDriver givenDriver){
         driver = givenDriver;
@@ -25,7 +25,7 @@ public class BasePage {
         actions = new Actions(driver);
     }
 
-    public WebElement findElement(By locator){
+    public WebElement findElementVisibility(By locator){
         return wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
     }
     public WebElement findElementAndClickability(By locator){
@@ -37,7 +37,7 @@ public class BasePage {
     }
 
     public void doubleClick(By locator){
-        actions.doubleClick(findElement(locator)).perform();
+        actions.doubleClick(findElementVisibility(locator)).perform();
     }
     /*
     public boolean isPlaying(){
