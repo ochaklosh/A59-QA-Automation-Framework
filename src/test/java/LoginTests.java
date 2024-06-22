@@ -23,7 +23,7 @@ public class LoginTests extends BaseTest {
 
     //Happy Path - Login Test
     @Test
-    public void loginValidEmailValidPassword() throws InterruptedException {
+    public void loginValidEmailValidPassword(){
         //Using Page Object Model  THE NEW WAY
         LoginPage loginPage = new LoginPage(driver);
         HomePage homePage = new HomePage(driver);
