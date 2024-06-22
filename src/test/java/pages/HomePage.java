@@ -3,6 +3,7 @@ package pages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
 public class HomePage extends BasePage{
 
@@ -12,15 +13,20 @@ public class HomePage extends BasePage{
     }
 
     //LOCATORS
-    By userAvatarIcon = By.cssSelector("img.avatar");
-    By allSongsList = By.cssSelector("li a.song");
-    
+    private By userAvatarIcon = By.cssSelector("img.avatar");
+    private By allSongsList = By.cssSelector("li a.song");
+    private By playBtn = By.cssSelector("[data-testid='play-btn']");
+
     //METHODS
     public WebElement getUserAvatar(){
-        return findElement(userAvatarIcon);
+        return findElementVisibility(userAvatarIcon);
     }
     public void chooseAllSongsList(){
-        findElement(allSongsList).click();
+        findElementAndClickability(allSongsList).click();
     }
 
+    public WebElement hoverPlay(){
+        actions.moveToElement(findElementVisibility(playBtn)).perform();
+        return findElementAndClickability(playBtn);
+    }
 }
