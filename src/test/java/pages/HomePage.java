@@ -13,10 +13,14 @@ public class HomePage extends BasePage{
 
     //LOCATORS
     By userAvatarIcon = By.cssSelector("img.avatar");
-
+    By allSongsList = By.cssSelector("li a.song");
+    
     //METHODS
     public WebElement getUserAvatar(){
         return findElement(userAvatarIcon);
+    }
+    public void chooseAllSongsList(){
+        findElement(allSongsList).click();
     }
 
 }

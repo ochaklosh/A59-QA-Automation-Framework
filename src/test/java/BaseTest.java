@@ -22,7 +22,7 @@ public class BaseTest {
     //initialization of the Fluent wait object / Rarely Used
     public Wait<WebDriver> fluentWait;
     //Actions
-    public Actions actions;
+    public Actions actions = null;
 
     String url = "https://qa.koel.app/";
     String email = "demo@testpro.io";
