@@ -11,8 +11,8 @@ public class AllSongsPage extends BasePage{
     }
 
     //LOCATORS
-    By firstSong = By.cssSelector(".all-songs tr.song-item:nth-child(1)");
-    By playOption = By.cssSelector("li.playback");
+    private By firstSong = By.cssSelector(".all-songs tr.song-item:nth-child(1)");
+    private By playOption = By.cssSelector("li.playback");
 
     //METHODS
     public void contextClickFirstSong(){
