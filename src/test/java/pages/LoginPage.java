@@ -5,9 +5,9 @@ import org.openqa.selenium.WebDriver;
 
 public class LoginPage extends BasePage{
 
-    //CONSTRUCTOR
+    //CONSTRUCTOR is needed for this page to become an object
     public LoginPage(WebDriver givenDriver){
-        super(givenDriver);
+        super(givenDriver); //given driver is coming from BasePage
     }
 
     //LOCATORS
@@ -18,11 +18,11 @@ public class LoginPage extends BasePage{
     //PAGE METHODS
     public void provideEmail(String email){
         findElement(emailField).clear();
-        findElement(emailField).sendKeys();
+        findElement(emailField).sendKeys(email);
     }
     public void providePassword(String password){
         findElement(passwordField).clear();
-        findElement(passwordField).sendKeys();
+        findElement(passwordField).sendKeys(password);
     }
     public void clickSubmit(){
         findElement(submitBtn).click();
