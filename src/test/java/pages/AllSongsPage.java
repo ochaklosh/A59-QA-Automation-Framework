@@ -16,9 +16,9 @@ public class AllSongsPage extends BasePage{
 
     //METHODS
     public void contextClickFirstSong(){
-        actions.contextClick(findElement(firstSong)).perform();
+        actions.contextClick(findElementAndClickability(firstSong)).perform();
     }
     public void choosePlayOption(){
-        findElement(playOption).click();
+        findElementAndClickability(playOption).click();
     }
 }
