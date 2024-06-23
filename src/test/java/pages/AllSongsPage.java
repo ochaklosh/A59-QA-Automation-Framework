@@ -11,14 +11,14 @@ public class AllSongsPage extends BasePage{
     }
 
     //LOCATORS
-    By firstSong = By.cssSelector(".all-songs tr.song-item:nth-child(1)");
-    By playOption = By.cssSelector("li.playback");
+    private By firstSong = By.cssSelector(".all-songs tr.song-item:nth-child(1)");
+    private By playOption = By.cssSelector("li.playback");
 
     //METHODS
     public void contextClickFirstSong(){
-        actions.contextClick(findElement(firstSong)).perform();
+        actions.contextClick(findElementAndClickability(firstSong)).perform();
     }
     public void choosePlayOption(){
-        findElement(playOption).click();
+        findElementAndClickability(playOption).click();
     }
 }
