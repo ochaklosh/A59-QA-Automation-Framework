@@ -17,12 +17,12 @@ public class LoginPage extends BasePage{
 
     //PAGE METHODS
     public void provideEmail(String email){
-        findElementVisibility(emailField).clear();
-        findElementVisibility(emailField).sendKeys(email);
+        waitForVisibility(emailField).clear();
+        waitForVisibility(emailField).sendKeys(email);
     }
     public void providePassword(String password){
-        findElementVisibility(passwordField).clear();
-        findElementVisibility(passwordField).sendKeys(password);
+        waitForVisibility(passwordField).clear();
+        waitForVisibility(passwordField).sendKeys(password);
     }
     public void clickSubmit(){
         findElementAndClickability(submitBtn).click();
