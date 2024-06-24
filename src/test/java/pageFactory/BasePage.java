@@ -1,7 +1,8 @@
-package pages;
+package pageFactory;
 
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -21,6 +22,7 @@ public class BasePage {
         driver = givenDriver;
         wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         actions = new Actions(driver);
+        PageFactory.initElements(driver, this);
     }
     //METHODS
 
@@ -84,7 +86,7 @@ public class BasePage {
             WebElement element = driver.findElement(locator);
             //Javascript to trigger mouseover event
             String mouseOverScript =
-             "var event = new MouseEvent('mouseover', { 'view': window, 'bubbles': true, 'cancelable': true}); arguments[0].dispatchEvent(event);";
+                    "var event = new MouseEvent('mouseover', { 'view': window, 'bubbles': true, 'cancelable': true}); arguments[0].dispatchEvent(event);";
             ((JavascriptExecutor) driver).executeScript(mouseOverScript,element);
             //Javascript to trigger click event
             ((JavascriptExecutor) driver).executeScript("arguments[0].click();", element);
