@@ -24,6 +24,8 @@ public class HomePage extends BasePage{
     private By playlistWithName = By.xpath("//a[contains(text(),'TestPro Playlist2024')]");
     private By playlistInputFld = By.cssSelector("[name='name']");
     private By notificationMsg = By.cssSelector("div.success.show");
+    private By playlistWrapper = By.cssSelector("section#playlistWrapper td.title");
+
     //Methods
     public WebElement getUserAvatar(){
         return waitForVisibility(userAvatarIcon);
@@ -40,7 +42,7 @@ public class HomePage extends BasePage{
     }
 
     public WebElement hoverPlay() {
-        WebElement playButton = driver.findElement(By.cssSelector("[data-testid='play-btn']"));
+        WebElement playButton = driver.findElement(playBtn);
         actions.moveToElement(playButton).build().perform();
         return wait.until(ExpectedConditions.visibilityOf(playButton));
     }
@@ -50,15 +52,14 @@ public class HomePage extends BasePage{
     }
 
     public void displayAllSongs() {
-        List<WebElement> songList = driver.findElements
-                (By.cssSelector("section#playlistWrapper td.title"));
+        List<WebElement> songList = driver.findElements(playlistWrapper);
         System.out.println("Number of Songs found: "+songsCount());
         for (WebElement e: songList){
             System.out.println(e.getText());
         }
     }
     public int songsCount() {
-        return driver.findElements(By.cssSelector("section#playlistWrapper td.title")).size();
+        return driver.findElements(playlistWrapper).size();
     }
     public String getPlaylistDetails(){
         return waitForVisibility(playlistDetails).getText();
