@@ -29,7 +29,7 @@ public class HomePage extends BasePage{
         return waitForVisibility(userAvatarIcon);
     }
     public void chooseAllSongsList(){
-        tryClick(allSongsList);
+        waitForPresence(allSongsList).click();
     }
 
     public void playButtonSong(){
