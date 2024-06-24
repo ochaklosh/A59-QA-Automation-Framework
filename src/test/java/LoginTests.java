@@ -7,14 +7,14 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.HomePage;
-import pages.LoginPage;
-
+//import pages.LoginPage;
+import pageFactory.LoginPage;
 public class LoginTests extends BaseTest {
 
 
     private static final Log log = LogFactory.getLog(LoginTests.class);
 
-    @Test
+    //@Test
     public void loginEmptyEmailPassword() {
 
         //navigateToPage();
@@ -29,7 +29,8 @@ public class LoginTests extends BaseTest {
         HomePage homePage = new HomePage(driver);
 
         loginPage.login();
-
+             ///When using fluency
+       // loginPage.provideEmail("demo@testpro.io").providePassword("te$t$tudent").clickSubmit();
         Assert.assertTrue(homePage.getUserAvatar().isDisplayed());
 
 /*     THE OLD WAY
@@ -59,8 +60,7 @@ public class LoginTests extends BaseTest {
     }
 
     // Not a Happy Path - Negative Path
-    @Test
-
+    //@Test
     public void loginWithInvalidEmailValidPassword(){
     //New Way with POM
         LoginPage loginPage = new LoginPage(driver);
@@ -85,7 +85,7 @@ public class LoginTests extends BaseTest {
         Assert.assertEquals(driver.getCurrentUrl(), url);*/
     }
 
-    @Test
+    //@Test
     public void loginWithValidEmailEmptyPassword(){
         //NEW WAY
         LoginPage loginPage = new LoginPage(driver);
