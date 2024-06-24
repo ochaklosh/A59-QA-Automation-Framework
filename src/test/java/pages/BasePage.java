@@ -15,7 +15,7 @@ public class BasePage {
     protected Actions actions;
 
     //Locators
-
+    private By soundBarVisualizer = By.cssSelector("[data-testid = 'sound-bar-play']");
 
     public BasePage(WebDriver givenDriver){
         driver = givenDriver;
@@ -91,5 +91,7 @@ public class BasePage {
         }
 
     }
-
+    public boolean isPlaying(){
+        return waitForVisibility(soundBarVisualizer).isDisplayed();
+    }
 }
