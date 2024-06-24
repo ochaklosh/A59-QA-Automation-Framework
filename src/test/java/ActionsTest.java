@@ -7,7 +7,7 @@ import pages.LoginPage;
 public class ActionsTest extends BaseTest{
     //Test #1 Contextual click
     @Test
-    public void playsong(){
+    public void playSong(){
 
         LoginPage loginPage = new LoginPage(driver);
         HomePage homePage = new HomePage(driver);
@@ -21,7 +21,7 @@ public class ActionsTest extends BaseTest{
         allSongsPage.contextClickFirstSong();
         //Click on Play from menu
         allSongsPage.choosePlayOption();
-       // Assert.assertTrue((allSongsPage.isPlaying()));
+        Assert.assertTrue((allSongsPage.isPlaying()));
 
     }
 }
