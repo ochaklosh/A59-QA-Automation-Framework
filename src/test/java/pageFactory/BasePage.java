@@ -25,7 +25,13 @@ public class BasePage {
         PageFactory.initElements(driver, this);
     }
     //METHODS
-
+  //Methods to be used with pageFactory
+    public WebElement waitForVisibilityPF(WebElement element){
+        return wait.until(ExpectedConditions.visibilityOf(element));
+    }
+    public WebElement findElementAndClickabilityPF(WebElement element){
+        return wait.until(ExpectedConditions.elementToBeClickable(element));
+    }
     //Method to wait for an element to be visible on the page
     public WebElement waitForVisibility(By locator){
         return wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
