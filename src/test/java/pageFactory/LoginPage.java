@@ -22,28 +22,22 @@ public class LoginPage extends BasePage {
     private WebElement emailField;
 
     @FindBy(css = "input[type='password']")
-    WebElement passwordField;
+    private WebElement passwordField;
 
     @FindBy(css = "button[type='submit']")
-    WebElement submitBtn;
+    private WebElement submitBtn;
 
     //PAGE METHODS
-    public LoginPage provideEmail(String email){
+    public void provideEmail(String email){
         emailField.clear();
         waitForVisibilityPF(emailField).sendKeys(email);
-        return this;
     }
-    public LoginPage providePassword(String password){
-        passwordField.clear();
-        passwordField.sendKeys(password);
-        //waitForVisibility(passwordField).clear();
-        //waitForVisibility(passwordField).sendKeys(password);
-        return this;
+    public void providePassword(String password){
+        waitForVisibilityPF(passwordField).clear();
+        waitForVisibilityPF(passwordField).sendKeys(password);
     }
-    public LoginPage clickSubmit(){
-        submitBtn.click();
-        //findElementAndClickability(submitBtn).click();
-        return this;
+    public void clickSubmit(){
+        findElementAndClickabilityPF(submitBtn).click();
     }
 
     public void login(){
