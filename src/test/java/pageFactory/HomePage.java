@@ -7,7 +7,6 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 //import pages.BasePage;
-import pageFactory.BasePage;
 
 import java.util.List;
 
@@ -22,6 +21,24 @@ public class HomePage extends BasePage {
     @FindBy(css = "img.avatar")
     private  WebElement userAvatarIcon;
 
+    @FindBy(css="i[title='Create a new playlist']")
+    private WebElement addPlayLists;
+
+    @FindBy(css = "[data-testid='playlist-context-menu-create-simple']")
+    private WebElement newPlaylistChoice;
+
+    @FindBy(css = "#playlists input[type='text']")
+    private WebElement inputNewPlaylist;
+
+    @FindBy(css = "input[type='search']")
+    private WebElement searchField;
+
+    @FindBy(css = "div.success.show")
+    private WebElement notificationSuccessMsg;
+
+    @FindBy(css = "div.success.hide")
+    private WebElement messageHidden;
+
     //private By userAvatarIcon = By.cssSelector("img.avatar");
     private By allSongsList = By.cssSelector("li a.songs");
     private By playBtn = By.xpath("//footer[@id='mainFooter']//span[@class='play']//i");
@@ -29,7 +46,7 @@ public class HomePage extends BasePage {
     private By playlistDetails = By.cssSelector("span.meta.text-secondary span.meta");
     private By playlistWithName = By.xpath("//a[contains(text(),'TestPro Playlist2024')]");
     private By playlistInputFld = By.cssSelector("[name='name']");
-    private By notificationMsg = By.cssSelector("div.success.show");
+    //private By notificationMsg = By.cssSelector("div.success.show");
     private By playlistWrapper = By.cssSelector("section#playlistWrapper td.title");
 
     //Methods
@@ -81,8 +98,20 @@ public class HomePage extends BasePage {
         playlistInputField.sendKeys(newPlaylistName);
         playlistInputField.sendKeys(Keys.ENTER);
     }
-    public String getRenamePlaylistSuccessMsg(){
-        WebElement notification = waitForVisibility(notificationMsg);
-        return notification.getText();
+    public String getSuccessMsg(){
+        return waitForVisibilityPF(notificationSuccessMsg).getText();
+    }
+    public void waitForMsgToHide(){
+        waitForVisibilityPF(messageHidden);
+    }
+    public void createNewPlaylist(String newPlaylistName) {
+        findElementAndClickabilityPF(addPlayLists).click();
+        waitForVisibilityPF(newPlaylistChoice).click();
+        waitForVisibilityPF(inputNewPlaylist).sendKeys(newPlaylistName);
+        inputNewPlaylist.submit();
+    }
+    public void searchSong(String song) {
+        waitForVisibilityPF(searchField).clear();
+        searchField.sendKeys(song);
     }
 }
