@@ -4,8 +4,8 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import pages.BasePage;
-
+//import pages.BasePage;
+import pageFactory.BasePage;
 public class LoginPage extends BasePage {
 
     //CONSTRUCTOR is needed for this page to become an object
@@ -30,9 +30,7 @@ public class LoginPage extends BasePage {
     //PAGE METHODS
     public LoginPage provideEmail(String email){
         emailField.clear();
-        emailField.sendKeys(email);
-        //waitForVisibility(emailField).clear();
-        //waitForVisibility(emailField).sendKeys(email);
+        waitForVisibilityPF(emailField).sendKeys(email);
         return this;
     }
     public LoginPage providePassword(String password){
