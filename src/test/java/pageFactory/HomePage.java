@@ -36,6 +36,9 @@ public class HomePage extends BasePage {
     @FindBy(css = "div.success.show")
     private WebElement notificationSuccessMsg;
 
+    @FindBy(xpath = "//div[@class='success show' and contains(text(), 'Added 1 song into')]")
+    private WebElement notificationSuccessMsgOneSongAdded;
+
     @FindBy(css = "div.success.hide")
     private WebElement messageHidden;
 
@@ -100,6 +103,9 @@ public class HomePage extends BasePage {
     }
     public String getSuccessMsg(){
         return waitForVisibilityPF(notificationSuccessMsg).getText();
+    }
+    public String getSuccessMsgOneSongAdded(){
+        return waitForVisibilityPF(notificationSuccessMsgOneSongAdded).getText();
     }
     public void waitForMsgToHide(){
         waitForVisibilityPF(messageHidden);

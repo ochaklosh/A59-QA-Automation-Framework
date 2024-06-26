@@ -41,7 +41,8 @@ public class Homework23Tests extends BaseTest {
         allSongsPage.choosePlaylist();
     //THEN
         //Compare actual vs expected
-        Assert.assertEquals(homePage.getSuccessMsg(), expectedSongAddedMessage);
+        //Assert.assertEquals(homePage.getSuccessMsg(), expectedSongAddedMessage);
+        Assert.assertEquals(homePage.getSuccessMsgOneSongAdded(), expectedSongAddedMessage);
     }
 
 /*/Extra possible method
