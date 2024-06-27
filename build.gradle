@@ -27,11 +27,12 @@ dependencies {
 test {
     useTestNG() {
 
-        suites "src/test/resources/TestNG.xml"
+        suites "src/test/resources/Cucumber.xml"
         //suites"src/test/resources/Smoke.xml"
         //suites"src/test/resources/Regression.xml"
         //suites "src/test/resources/Homework18.xml"
         systemProperty "browser", System.getProperty("browser")
+        //suites "src/test/resources/TestNG.xml"
     }
 }
 
