@@ -13,6 +13,15 @@ dependencies {
     testImplementation 'org.testng:testng:7.6.1'
     implementation 'org.seleniumhq.selenium:selenium-java:4.5.0'
     testImplementation 'io.github.bonigarcia:webdrivermanager:5.8.0'
+//Cucumber Dependencies
+  //Go to mvnrepository.com  choose Cucumber JVM: JAva ( Check for #b of uses and the version when it was created
+    implementation 'io.cucumber:cucumber-testing:7.18.0'
+    implementation 'io.cucumber:cucumber-core:7.18.0'
+    implementation 'io.cucumber:cucumber-java:7.18.0'
+    implementation 'io.cucumber:gherkin:25.0.2'
+  //After refresh Gradle to make sure that cucumber is installed  NEXT
+  //CHECK if Plugin is installed (File -> Settings ->  Plugins search for Cucumber for Java make sure it is installed
+
 }
 
 test {
